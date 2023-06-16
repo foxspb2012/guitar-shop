@@ -1,0 +1,26 @@
+.not-found-page__back {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 90vh;
+  background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 25%, rgba(255, 255, 255, 1) 100%);
+  color: #ffffff;
+}
+
+.not-found-page__cover-logo {
+  width: auto;
+  padding: 4px 4px;
+  margin: 0 auto;
+}
+
+.not-found-page__title {
+  display: block;
+  margin-bottom: 60px;
+}
