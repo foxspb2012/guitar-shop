@@ -1,0 +1,76 @@
+# Создать карточку товара
+POST /guitar-shop/products/ HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoidXNlckB1c2VyLnJ1IiwibmFtZSI6IkpvaG4gRG9lIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE2NzY1NzU0NTIsImV4cCI6MTY3NjU3NjA1Mn0.PEyP0L9jvnTm8s8hOQDWas2B6GfaE-duxIqz4-RRDlM
+
+{
+  "title": "Framus Diablo",
+  "description": "Electric guitar with oil finish. Handmade in Germany",
+  "guitarType": "Acoustic",
+  "article": "123456",
+  "stringsCount": 6,
+  "rating": 5,
+  "price": 100000
+}
+###
+
+# Редактировать карточку товара
+PATCH /guitar-shop/products/1 HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoidXNlckB1c2VyLnJ1IiwibmFtZSI6IkpvaG4gRG9lIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE2NzY1NzU0NTIsImV4cCI6MTY3NjU3NjA1Mn0.PEyP0L9jvnTm8s8hOQDWas2B6GfaE-duxIqz4-RRDlM
+
+{
+  "title": "Framus Diablo",
+  "description": "Electric guitar with oil finish. Handmade in Germany. 22 frets. African tree Ovangol, Rosewood overlay",
+  "guitarType": "Electric",
+  "article": "1234567",
+  "stringsCount": 6,
+  "rating": 5,
+  "price": 110000
+}
+###
+
+# Удалить карточку товара
+DELETE /guitar-shop/products/1 HTTP/1.1
+Host: localhost:3333
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5Abm90aWZ5LmxvY2FsIiwibmFtZSI6ImFkbWluIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNjc2NzkyNzU3LCJleHAiOjE2NzY3OTMzNTd9.2LzneS0rT_DgkwOplCyOoXq1VCmlP_VcRy3dxC-RJnI
+
+###
+
+# Получить список товаров
+GET /guitar-shop/products?limit=2&page=1&guitarType=Electric&stringsCount=6&sortType=date&sortDirection=desc&searchInTitle=Fra HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+###
+
+# Получить детальную информацию по товару
+GET /guitar-shop/products/1 HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+###
+
+# Загрузить фото товара
+POST /guitar-shop/products/1/photo HTTP/1.1
+Host: localhost:3333
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5Abm90aWZ5LmxvY2FsIiwibmFtZSI6ImFkbWluIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNjc2NzkyNTM5LCJleHAiOjE2NzY3OTMxMzl9.uLT2CQFtRMCBfAgTuF7-JZQ_UojW1ZHZhHn67G6YTqE
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="photo"; filename="framus-diablo-nj-d.jpg"
+Content-Type: image/jpeg
+
+< D:/загрузки/framus-diablo-nj-d.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+###
+
+# Получить фото товара
+GET /guitar-shop/products/1/photo HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+###
+
+
+
+

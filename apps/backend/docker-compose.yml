@@ -1,0 +1,48 @@
+version: '3.5'
+services:
+  postgres:
+    image: postgres:14-alpine
+    container_name: guitar-shop-backend
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: guitar-shop
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U admin -d guitar-shop" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    networks:
+      - postgres_network
+
+  pgadmin:
+    container_name: pgadmin-guitar-shop
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: keks@htmlacademy.local
+      PGADMIN_DEFAULT_PASSWORD: 12345
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+    networks:
+      - postgres_network
+
+  fakesmtp:
+    image: gessnerfl/fake-smtp-server
+    container_name: guitar-shop-fakesmtp
+    hostname: fakesmtp
+    ports:
+      - "5025:5025"
+      - "8083:5080"
+
+networks:
+  postgres_network:
+    driver: bridge

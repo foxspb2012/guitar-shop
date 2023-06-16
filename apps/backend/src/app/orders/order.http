@@ -1,0 +1,41 @@
+# Создать заказ
+POST /guitar-shop/orders HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5Abm90aWZ5LmxvY2FsIiwibmFtZSI6ImFkbWluIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNjc2ODMwMjQ2LCJleHAiOjE2NzY4MzA4NDZ9.izw5BBrlVTd2GovcmuyX1GM3UFN0CgEyjVCKjKrm6fg
+
+{
+  "orderList" : [
+    {
+      "productId" : 1,
+      "quantity" : 2
+    },
+    {
+      "productId" : 2,
+      "quantity" : 5
+    },
+    {
+      "productId" : 3,
+      "quantity" : 10
+    }
+  ]
+}
+###
+
+# Удалить заказ
+DELETE /guitar-shop/orders/10 HTTP/1.1
+Host: localhost:3333
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5Abm90aWZ5LmxvY2FsIiwibmFtZSI6ImFkbWluIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNjc2NzkyNzU3LCJleHAiOjE2NzY3OTMzNTd9.2LzneS0rT_DgkwOplCyOoXq1VCmlP_VcRy3dxC-RJnI
+###
+
+# Получить список заказов
+GET /guitar-shop/orders?limit=2&page=1&sortType=date&sortDirection=desc HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+###
+
+# Получить детальную информацию по заказу
+GET /guitar-shop/orders/3 HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+###

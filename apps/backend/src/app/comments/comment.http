@@ -1,0 +1,21 @@
+# Создать отзыв/комментарий к товару
+POST /guitar-shop/comments HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoidXNlckB1c2VyLnJ1IiwibmFtZSI6IkpvaG4gRG9lIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE2NzY1NzU0NTIsImV4cCI6MTY3NjU3NjA1Mn0.PEyP0L9jvnTm8s8hOQDWas2B6GfaE-duxIqz4-RRDlM
+
+{
+  "userId": 1,
+  "productId": 1,
+  "score": 1,
+  "content": "The guitar has a great color, good wood. Heavy, there is no cover and belt included",
+  "advantages": "Good body, clear sound, good quality strings. Blaaaaaaaaa",
+  "disadvantages": "Tight spikes. Blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}
+###
+
+# Получить список комментариев
+GET /guitar-shop/comments/1 HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+###
