@@ -6,6 +6,7 @@ import { RegistrationScreen } from '../../pages/registration-screen/registration
 import { NotFoundScreen } from '../../pages/not-found-screen/not-found-screen';
 import { useAppDispatch } from '../../hooks/';
 import { checkAuth } from '../../store/api-actions';
+import { CatalogScreen } from '../../pages/сatalog-screen/сatalog-screen';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -26,6 +27,14 @@ function App(): JSX.Element {
       <Route
         path={AppRoute.Registration}
         element={<RegistrationScreen/>}
+      />
+      <Route
+        path={AppRoute.Catalog}
+        element={
+          <PrivateRoute>
+            <CatalogScreen />
+          </PrivateRoute>
+        }
       />
       <Route
         path="*"

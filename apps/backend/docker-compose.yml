@@ -4,9 +4,9 @@ services:
     image: postgres:14-alpine
     container_name: guitar-shop-backend
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: 12345
-      POSTGRES_DB: guitar-shop
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "test"
+      POSTGRES_DB: "guitar-shop"
     ports:
       - "5432:5432"
     healthcheck:
@@ -24,8 +24,8 @@ services:
     container_name: pgadmin-guitar-shop
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: keks@htmlacademy.local
-      PGADMIN_DEFAULT_PASSWORD: 12345
+      PGADMIN_DEFAULT_EMAIL: "test@mail.local"
+      PGADMIN_DEFAULT_PASSWORD: "test"
       PGADMIN_CONFIG_SERVER_MODE: "False"
     volumes:
       - ./pgadmin:/var/lib/pgadmin

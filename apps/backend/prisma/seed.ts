@@ -1,4 +1,4 @@
-import { PrismaClient, UserRole } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import { genSalt, hash } from 'bcrypt';
 import { SALT_ROUNDS } from '../src/app/users/user.constant';
 
@@ -15,7 +15,7 @@ async function fillDb() {
       email: 'admin@notify.local',
       password,
       name: 'admin',
-      role: UserRole.Admin,
+      role: 'Admin',
     }
   });
   await prisma.user.upsert({

@@ -12,11 +12,14 @@ export const userData = createSlice({
   initialState,
   reducers: {
     setAuthorizationStatus: (state, action) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       state.authorizationStatus = action.payload;
     },
     setUser: (state, action) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       state.user = action.payload;
     },
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     setToDefault: () => {
     },
   },

@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 import { Layout } from '../../components/layout/layout';
-// import { Filters } from '../../components/filters/filters';
 
-function CatalogPage(): JSX.Element {
+export function CatalogScreen(): JSX.Element {
 
   return (
     <Layout>
@@ -18,12 +17,9 @@ function CatalogPage(): JSX.Element {
               <Link className="link" to="#">Каталог</Link>
             </li>
           </ul>
-          <div className="catalog">
-          </div>
         </div>
       </main>
     </Layout >
   );
 }
 
-export default CatalogPage;
